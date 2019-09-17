@@ -23,7 +23,7 @@ var server = new Hapi.Server();
 
 var options = {};
 
-server.register({ register: require('hapi-cloudwatch'), options }, function(err) {
+server.register({ plugin: require('hapi-cloudwatch'), options }, function(err) {
   if (err) {
     console.log('error', 'Failed loading plugin: hapi-cloudwatch');
   }
@@ -64,8 +64,8 @@ A Hapi route configured like this:
 server.route({
   method: 'GET',
   path: '/products/{id}',
-  handler: function(request, reply) {
-    reply('Success!');
+  handler: function(request, h) {
+    'Success!';
   }
 });
 ```
