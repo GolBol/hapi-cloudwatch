@@ -84,6 +84,4 @@ Here's an example of what can be graphed in CloudWatch with this metric:
 
 ## Version Compatibility
 
-### Currently in use by me with with: Hapi 16.1.0 (Node v6)
-
-_I'll add tests for other hapi and node versions shortly_
+With hapi versions `>=17.0.0` use `>=2.0.0`, and for hapi `16` use [`1.0.1`](https://github.com/tido/hapi-cloudwatch/releases/tag/v1.0.1).
