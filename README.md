@@ -1,6 +1,6 @@
 # hapi-cloudwatch
 
-A hapi plugin for sending request response time metrics to AWS CloudWatch.
+A upgraded hapi plugin for sending request response time metrics to AWS CloudWatch. (Supports Hapi v17 onwards)
 
 [![Build Status](https://travis-ci.org/clarkie/hapi-cloudwatch.png?branch=master)](https://travis-ci.org/clarkie/hapi-cloudwatch)
 [![Coverage Status](https://coveralls.io/repos/github/clarkie/hapi-cloudwatch/badge.svg)](https://coveralls.io/github/clarkie/hapi-cloudwatch)
