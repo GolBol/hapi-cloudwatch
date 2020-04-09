@@ -23,11 +23,12 @@ var server = new Hapi.Server();
 
 var options = {};
 
-server.register({ plugin: require('hapi-cloudwatch'), options }, function(err) {
-  if (err) {
-    console.log('error', 'Failed loading plugin: hapi-cloudwatch');
-  }
-});
+server.register({ plugin: require('hapi-cloudwatch'), options })
+    .then(function(err) {
+        if (err) {
+            console.log('error', 'Failed loading plugin: hapi-cloudwatch');
+        }
+    });
 ```
 
 ## Plugin Options
@@ -36,7 +37,7 @@ server.register({ plugin: require('hapi-cloudwatch'), options }, function(err) {
 
 AWS region to send the metrics to.
 
-Defaults to `eu-west-1`
+Defaults to `ap-south-1`
 
 ### `environment`
 
@@ -49,6 +50,12 @@ Defaults to `process.env.NODE_ENV`
 Turns on/off the sending of metrics to CloudWatch
 
 Defaults to `true`
+
+### `namespace`
+
+Specify a custom namespace for the metrics
+
+Defaults to `Api Metrics`
 
 ### `metricsSentCallback`
 
@@ -89,3 +96,8 @@ Here's an example of what can be graphed in CloudWatch with this metric:
 | `2.x`   | `>=17 hapi`                               | 
 | `1.x`   | `<17 hapi`                                |
 
+
+## FAQ
+
+1. I'm not able to see metrics in by Cloudwatch Metrics
+- Check for your IAM Policy and Role, does it have permission to write metrics to CloudWatch.

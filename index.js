@@ -14,7 +14,7 @@ exports.plugin = {
 
     server.events.on('response', request => {
       const dimensions = metric.createDimensions(request);
-      responseMetric.put(request.app.endTime - request.app.startTime, 'responseTime', dimensions);
+      responseMetric.put(request.app.endTime - request.app.startTime, 'ApiResponseTime', dimensions);
     });
   },
 };
