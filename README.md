@@ -23,7 +23,7 @@ var server = new Hapi.Server();
 
 var options = {};
 
-server.register({ register: require('hapi-cloudwatch'), options }, function(err) {
+server.register({ plugin: require('hapi-cloudwatch'), options }, function(err) {
   if (err) {
     console.log('error', 'Failed loading plugin: hapi-cloudwatch');
   }
@@ -64,8 +64,8 @@ A Hapi route configured like this:
 server.route({
   method: 'GET',
   path: '/products/{id}',
-  handler: function(request, reply) {
-    reply('Success!');
+  handler: function(request, h) {
+    'Success!';
   }
 });
 ```
@@ -84,6 +84,8 @@ Here's an example of what can be graphed in CloudWatch with this metric:
 
 ## Version Compatibility
 
-### Currently in use by me with with: Hapi 16.1.0 (Node v6)
+| Version | [hapi.js](https://github.com/hapijs/hapi) |
+| ------- | ----------------------------------------- |
+| `2.x`   | `>=17 hapi`                               | 
+| `1.x`   | `<17 hapi`                                |
 
-_I'll add tests for other hapi and node versions shortly_

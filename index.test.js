@@ -4,10 +4,9 @@ import Hapi from 'hapi';
 import plugin from './index';
 
 test('plugin registered', async t => {
-  const server = new Hapi.Server();
-  server.connection({ port: 3000 });
+  const server = new Hapi.Server({ port: 3000 });
 
-  server.route({ method: 'GET', path: '/', handler: (request, reply) => reply(request.app) });
+  server.route({ method: 'GET', path: '/', handler: request => request.app });
 
   await server.register(plugin);
   const { result } = await server.inject({ url: '/' });
@@ -16,10 +15,9 @@ test('plugin registered', async t => {
 });
 
 test('plugin registered with all options', async t => {
-  const server = new Hapi.Server();
-  server.connection({ port: 3000 });
+  const server = new Hapi.Server({ port: 3000 });
 
-  server.route({ method: 'GET', path: '/', handler: (request, reply) => reply(request.app) });
+  server.route({ method: 'GET', path: '/', handler: request => request.app });
 
   const options = {
     enabled: false,
@@ -28,7 +26,7 @@ test('plugin registered with all options', async t => {
     metricsSentCallback: () => {},
   };
 
-  await server.register({ register: plugin, options });
+  await server.register({ plugin, options });
   const { result } = await server.inject({ url: '/' });
   t.truthy(result.startTime);
   t.truthy(result.endTime);
