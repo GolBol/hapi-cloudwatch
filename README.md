@@ -11,7 +11,8 @@ A hapi plugin for sending request response time metrics to AWS CloudWatch.
 
 ## Installation
 
-	npm install hapi-cloudwatch
+	npm install --save https://github.com/GolBol/hapi-cloudwatch/tarball/master
+    
 
 ## Usage
 
