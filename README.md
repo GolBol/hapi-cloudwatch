@@ -94,8 +94,8 @@ Here's an example of what can be graphed in CloudWatch with this metric:
 
 | Version | [hapi.js](https://github.com/hapijs/hapi) |
 | ------- | ----------------------------------------- |
-| `2.x`   | `>=17 hapi`                               | 
-| `1.x`   | `<17 hapi`                                |
+| `^1.1.x`   | `>=17 hapi`                               | 
+| `1.0.x`   | `<17 hapi`                                |
 
 
 ## FAQ
